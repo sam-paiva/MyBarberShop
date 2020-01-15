@@ -18,17 +18,15 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     card: {
-        width: 280,
+        width: 300,
         height: 250,
         backgroundColor: "#fff",
         marginHorizontal: 30,
-        borderRadius: 10
+        borderRadius: 20
     },
     imageCarousel: {
-        width: 270,
+        width: 300,
         height: 100,
-        borderRadius: 10,
-        margin: 5
     },
     bodyCard: {
         flex: 1,
@@ -44,12 +42,6 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontWeight: 'bold',
         padding: 10
-    },
-    rating: {
-        alignSelf: 'flex-start',
-        alignItems: 'flex-start',
-        marginLeft: 20,
-        marginTop: 5
     }
 })
 

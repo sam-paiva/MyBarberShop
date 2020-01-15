@@ -8,11 +8,12 @@ import { name as appName } from './app.json';
 import React from 'react';
 import { Provider } from 'react-redux';
 import store from './src/store/store';
+import StackRoutes from './src/routes/routes';
 
 export const Routes = () => {
     return (
         <Provider store={store}>
-            <Home />
+            <StackRoutes />
         </Provider>
     );
 }
