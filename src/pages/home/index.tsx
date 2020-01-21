@@ -1,13 +1,12 @@
 import React, { useEffect, FC } from 'react';
 import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
-import { useDispatch, useSelector, TypedUseSelectorHook } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../actions/barberShopAactions';
-import { BarberShopState, BarberShop } from '../../types/barberShop';
-import Carousel from 'react-native-snap-carousel';
-import { NavigationStackScreenProps } from 'react-navigation-stack';
 import { NavigationScreenProp, NavigationState, NavigationParams } from 'react-navigation';
-import { Rating, AirbnbRating } from 'react-native-elements';
+import Carousel from 'react-native-snap-carousel';
+import { Rating } from 'react-native-elements';
+import { BarberShop } from '../../types/barberShop';
 
 interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -24,7 +23,9 @@ const Home: FC<Props> = (props) => {
         dispatch(actions.getTopBarberShopsAction());
     }, []);
 
+
     const carousel = ({ item }: { item: BarberShop }) => {
+
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('BarberShopDetails', {
                 barberShop: item

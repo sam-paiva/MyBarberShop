@@ -1,11 +1,12 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux';
 import ReduxThunk from 'redux-thunk';
 import barberShop from '../reducers/barberShop/index';
-import { Reducer } from 'react';
+import barber from '../reducers/barber/index';
 
 
 const reducers = combineReducers({
-    barberShop
+    barberShop,
+    barber
 });
 
 const store = createStore(reducers, applyMiddleware(ReduxThunk));
