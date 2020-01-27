@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: width,
-        height: 230,
+        height: 300,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
     },
@@ -18,21 +18,22 @@ const styles = StyleSheet.create({
         fontWeight: 'bold'
     },
     card: {
-        width: 230,
+        width: 250,
         height: 250,
         backgroundColor: "#fff",
-        borderRadius: 10,
-        alignContent: 'center',
+        borderRadius: 20,
+        justifyContent: 'center',
+        alignSelf: 'center'
     },
     imageCarousel: {
-        width: 230,
+        width: 250,
         height: 100,
-        borderRadius: 10,
     },
     bodyCard: {
         flex: 1,
         justifyContent: 'flex-start',
-        alignContent: 'flex-start',
+        marginTop: 20,
+        marginBottom: 100
     },
     text: {
         marginLeft: 20,
@@ -42,7 +43,7 @@ const styles = StyleSheet.create({
     titleCard: {
         fontSize: 20,
         fontWeight: 'bold',
-        padding: 10,
+        padding: 5
     },
     rating: {
         alignSelf: 'flex-start',

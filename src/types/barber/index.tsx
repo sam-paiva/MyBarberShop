@@ -1,5 +1,6 @@
 import { BarberShop } from "../barberShop";
 export const GET_BARBERS_FROM_BARBER_SHOP = 'GET_BARBERS_FROM_BARBER_SHOP';
+export const MAKE_APPOINTMENT = 'MAKE_APPOINTMENT';
 
 
 export interface Barber {
@@ -15,7 +16,8 @@ export interface Barber {
 }
 
 export interface BarberState {
-    barbers: []
+    barbers: [],
+    makeAppointment: boolean
 }
 
 export interface GetBarbersFromBarberShop {
@@ -23,5 +25,10 @@ export interface GetBarbersFromBarberShop {
     payload: []
 }
 
+export interface MakeAppointment {
+    type: typeof MAKE_APPOINTMENT,
+    payload: void
+}
 
-export type BarberActions = GetBarbersFromBarberShop;
+
+export type BarberActions = GetBarbersFromBarberShop | MakeAppointment;

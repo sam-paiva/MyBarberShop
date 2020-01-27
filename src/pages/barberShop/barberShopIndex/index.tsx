@@ -1,31 +1,29 @@
-import React, { useEffect, FC } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import React, { FC, useEffect } from 'react';
+import { View, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
+import { Item, Input, Text } from 'native-base';
+import Icon from 'react-native-vector-icons/FontAwesome';
 import { useDispatch, useSelector } from 'react-redux';
-import * as actions from '../../actions/barberShopAactions';
-import { NavigationScreenProp, NavigationState, NavigationParams } from 'react-navigation';
+import { BarberShop } from '../../../types/barberShop';
+import * as actions from '../../../actions/barberShopAactions';
 import Carousel from 'react-native-snap-carousel';
 import { Rating } from 'react-native-elements';
-import { BarberShop } from '../../types/barberShop';
+import { NavigationScreenProp, NavigationState, NavigationParams } from 'react-navigation';
 
 interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
 }
 
-const Home: FC<Props> = (props) => {
+const BarberShopIndex: FC<Props> = (props) => {
 
     const dispatch = useDispatch();
-
-    const topBarberShops: BarberShop[] = useSelector((state: any) =>
-        state.barberShop.topBarberShops);
+    const allBarberShops: BarberShop[] = useSelector((state: any) => state.barberShop.allBarberShops);
 
     useEffect(() => {
-        dispatch(actions.getTopBarberShopsAction());
+        dispatch(actions.getAllBarberShopsAction());
     }, []);
 
-
     const carousel = ({ item }: { item: BarberShop }) => {
-
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('BarberShopDetails', {
                 barberShop: item
@@ -37,7 +35,6 @@ const Home: FC<Props> = (props) => {
                         <Text numberOfLines={1} style={styles.titleCard}>{item.name}</Text>
                         <Text style={styles.text}>{item.address}</Text>
                         <Text style={styles.text}>{item.city}</Text>
-                        {/* <Text style={styles.text}>{item.closed ? 'Aberto' : 'fechado'}</Text> */}
                         <Rating
                             imageSize={20}
                             readonly
@@ -52,30 +49,26 @@ const Home: FC<Props> = (props) => {
     }
 
     return (
-
         <View style={styles.containerBody}>
-            <Image style={styles.image} source={require('../../assets/background.jpg')} />
-            <View style={{ flexDirection: 'row' }}>
-                <Text style={styles.titleText}>Top Barbearias</Text>
-                <TouchableOpacity onPress={() => props.navigation.navigate('BarberShopIndex')}>
-                    <Text style={{
-                        padding: 30,
-                        fontSize: 17,
-                    }}>Ver todas</Text>
-                </TouchableOpacity>
-            </View>
+            <Item>
+                <Icon size={30} name="search" color={'black'} />
+                <Input placeholder='Pesquise Aqui uma barbearia' placeholderTextColor={'grey'} />
+            </Item>
             <View style={styles.bodyCard}>
                 <Carousel
                     layout={'default'}
-                    data={topBarberShops}
+                    vertical={true}
+                    data={allBarberShops}
                     renderItem={carousel}
                     sliderWidth={500}
-                    itemWidth={250}
+                    itemWidth={320}
+                    itemHeight={270}
+                    sliderHeight={200}
                 />
             </View>
-        </View >
-
+        </View>
     )
 }
 
-export default Home;
+
+export default BarberShopIndex;

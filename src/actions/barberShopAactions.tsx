@@ -15,3 +15,17 @@ export function getTopBarberShopsAction() {
         }
     }
 }
+
+export function getAllBarberShopsAction() {
+    return (dispatch: (arg0: { type: string; payload: types.BarberShop[]; }) => void) => {
+        try {
+            const response = service.getAllBarberShops();
+
+            response.then(res => {
+                dispatch({ type: types.GET_ALL_BARBER_SHOPS, payload: res.data })
+            })
+        } catch (error) {
+
+        }
+    }
+}

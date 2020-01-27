@@ -1,6 +1,7 @@
 import { Barber } from "../barber";
 
 export const GET_TOP_BARBER_SHOPS = 'GET_TOP_BARBER_SHOPS';
+export const GET_ALL_BARBER_SHOPS = 'GET_ALL_BARBER_SHOPS';
 
 
 export interface BarberShop {
@@ -26,5 +27,10 @@ export interface GetTopBarberShops {
     payload: BarberShop[]
 }
 
+export interface GetAllBarberShops {
+    type: typeof GET_ALL_BARBER_SHOPS,
+    payload: BarberShop[]
+}
 
-export type BarberShopActionTypes = GetTopBarberShops
+
+export type BarberShopActionTypes = GetTopBarberShops | GetAllBarberShops
