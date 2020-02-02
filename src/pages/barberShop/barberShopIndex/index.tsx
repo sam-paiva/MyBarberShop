@@ -51,7 +51,7 @@ const BarberShopIndex: FC<Props> = (props) => {
     return (
         <View style={styles.containerBody}>
             <Item>
-                <Icon size={30} name="search" color={'black'} />
+                <Icon size={20} name="search" color={'black'} />
                 <Input placeholder='Pesquise Aqui uma barbearia' placeholderTextColor={'grey'} />
             </Item>
             <View style={styles.bodyCard}>

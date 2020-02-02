@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: width,
-        height: 230,
+        height: 200,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
     },
@@ -49,6 +49,10 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
         marginLeft: 20,
         marginTop: 5
+    },
+    item: {
+        borderColor: 'transparent',
+        padding: 10
     }
 })
 

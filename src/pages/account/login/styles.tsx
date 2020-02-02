@@ -40,11 +40,23 @@ const styles = StyleSheet.create({
         marginLeft: 20
     },
     button: {
-        marginTop: 50,
+        marginTop: 30,
         width: 200,
         alignSelf: 'center',
         justifyContent: 'center',
         backgroundColor: 'green'
+    },
+    gridRow: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: 30
+    },
+    textOption: {
+        color: 'grey',
+        marginHorizontal: 50
+    },
+    slide: {
+
     }
 })
 

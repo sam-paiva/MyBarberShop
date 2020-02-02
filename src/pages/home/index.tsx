@@ -3,10 +3,13 @@ import { View, Text, Image, TouchableOpacity } from 'react-native';
 import styles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import * as actions from '../../actions/barberShopAactions';
-import { NavigationScreenProp, NavigationState, NavigationParams } from 'react-navigation';
+import { NavigationScreenProp, NavigationState, NavigationParams, NavigationActions } from 'react-navigation';
 import Carousel from 'react-native-snap-carousel';
 import { Rating } from 'react-native-elements';
 import { BarberShop } from '../../types/barberShop';
+import { onSignOut, isSignedIn } from '../../service/auth';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { Item } from 'native-base';
 
 interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -21,8 +24,15 @@ const Home: FC<Props> = (props) => {
 
     useEffect(() => {
         dispatch(actions.getTopBarberShopsAction());
+        isSignedIn() ? null : props.navigation.navigate('Login');;
     }, []);
 
+
+    function logout() {
+        onSignOut();
+
+        props.navigation.navigate('Login');
+    }
 
     const carousel = ({ item }: { item: BarberShop }) => {
 
@@ -33,7 +43,6 @@ const Home: FC<Props> = (props) => {
                 <View style={styles.card}>
                     <Image style={styles.imageCarousel} source={{ uri: 'data:image/jpg;base64,' + item.imagePath }} />
                     <View style={styles.bodyCard}>
-
                         <Text numberOfLines={1} style={styles.titleCard}>{item.name}</Text>
                         <Text style={styles.text}>{item.address}</Text>
                         <Text style={styles.text}>{item.city}</Text>
@@ -55,6 +64,10 @@ const Home: FC<Props> = (props) => {
 
         <View style={styles.containerBody}>
             <Image style={styles.image} source={require('../../assets/background.jpg')} />
+            <Item style={styles.item} onPress={() => logout()}>
+                <Icon name={'keyboard-backspace'} size={30} color={'black'} />
+                <Text>Sair</Text>
+            </Item>
             <View style={{ flexDirection: 'row' }}>
                 <Text style={styles.titleText}>Top Barbearias</Text>
                 <TouchableOpacity onPress={() => props.navigation.navigate('BarberShopIndex')}>

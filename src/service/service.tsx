@@ -1,7 +1,9 @@
 import axios from 'axios';
 import { ActionSheetIOS } from 'react-native';
+import { Login } from '../types/account';
 
 const URL_BASE = 'http://192.168.11.6:5000/api';
+const URL_LOGIN = 'http://192.168.11.6:5001/api';
 
 export const getTopBarberShops = async () => {
     return await axios.get(URL_BASE + '/barbershop/topbarbershops');
@@ -25,4 +27,10 @@ export const makeAppointment = async (id: number) => {
 
 export const getAllBarberShops = async () => {
     return await axios.get(URL_BASE + '/barberShop/allbarbershops');
+}
+
+export const login = async (login: Login) => {
+    const response = await axios.post(URL_LOGIN + '/account', login);
+
+    return response;
 }
