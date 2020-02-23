@@ -29,7 +29,7 @@ const BarberShopIndex: FC<Props> = (props) => {
                 barberShop: item
             })} >
                 <View style={styles.card}>
-                    <Image style={styles.imageCarousel} source={{ uri: 'data:image/jpg;base64,' + item.imagePath }} />
+                    <Image style={styles.imageCarousel} source={{ uri: 'data:image/jpg;base64,' + item.imageName }} />
                     <View style={styles.bodyCard}>
 
                         <Text numberOfLines={1} style={styles.titleCard}>{item.name}</Text>

@@ -38,6 +38,9 @@ target 'MyBarberShop' do
 
   pod 'RNSnackbar', :path => '../node_modules/react-native-snackbar'
 
+
+
+
   target 'MyBarberShopTests' do
     inherit! :search_paths
     # Pods for testing

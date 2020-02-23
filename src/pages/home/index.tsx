@@ -10,6 +10,8 @@ import { BarberShop } from '../../types/barberShop';
 import { onSignOut, isSignedIn } from '../../service/auth';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Item } from 'native-base';
+import MyTabs from '../../components/bottomBar';
+
 
 interface Props {
     navigation: NavigationScreenProp<NavigationState, NavigationParams>;
@@ -35,13 +37,12 @@ const Home: FC<Props> = (props) => {
     }
 
     const carousel = ({ item }: { item: BarberShop }) => {
-
         return (
             <TouchableOpacity onPress={() => props.navigation.navigate('BarberShopDetails', {
                 barberShop: item
             })} >
                 <View style={styles.card}>
-                    <Image style={styles.imageCarousel} source={{ uri: 'data:image/jpg;base64,' + item.imagePath }} />
+                    <Image style={styles.imageCarousel} source={{ uri: 'data:image/jpg;base64,' + item.imageName }} />
                     <View style={styles.bodyCard}>
                         <Text numberOfLines={1} style={styles.titleCard}>{item.name}</Text>
                         <Text style={styles.text}>{item.address}</Text>

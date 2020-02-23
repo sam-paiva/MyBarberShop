@@ -21,3 +21,24 @@ export function loginAction(login: Login, navigation: NavigationScreenProp<Navig
         }
     }
 }
+
+export function createAccountAction(user: types.User, navigation: NavigationScreenProp<NavigationState, NavigationParams>) {
+    return (dispatch: (arg0: { type: string; payload: void; }) => void) => {
+        try {
+            const response = service.createAccount(user);
+
+            response.then(res => {
+                if (res.status === 200) {
+                    showToast('Sucesso ao criar sua conta', 'green');
+                    navigation.navigate('Login');
+                    dispatch({ type: types.CREATE_ACCOUNT, payload: res.data })
+                }
+                else {
+                    return;
+                }
+            })
+        } catch (error) {
+
+        }
+    }
+}

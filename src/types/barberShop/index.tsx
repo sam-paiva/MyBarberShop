@@ -12,7 +12,7 @@ export interface BarberShop {
     closingTime: string;
     city: string;
     rating: number;
-    imagePath: string;
+    imageName: string;
     closed: boolean;
     barbers: Barber[]
 }

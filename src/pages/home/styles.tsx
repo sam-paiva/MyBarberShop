@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     },
     image: {
         width: width,
-        height: 200,
+        height: 170,
         borderBottomLeftRadius: 50,
         borderBottomRightRadius: 50,
     },
@@ -19,7 +19,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: 230,
-        height: 250,
+        height: 220,
         backgroundColor: "#fff",
         borderRadius: 10,
         alignContent: 'center',
@@ -36,8 +36,8 @@ const styles = StyleSheet.create({
     },
     text: {
         marginLeft: 20,
-        fontSize: 15,
-        marginTop: 5
+        fontSize: 13,
+        marginTop: 0,
     },
     titleCard: {
         fontSize: 20,

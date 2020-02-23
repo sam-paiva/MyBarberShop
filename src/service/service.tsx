@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { ActionSheetIOS } from 'react-native';
-import { Login } from '../types/account';
+import { Login, User } from '../types/account';
 
 const URL_BASE = 'http://192.168.11.6:5000/api';
 const URL_LOGIN = 'http://192.168.11.6:5001/api';
@@ -31,6 +31,12 @@ export const getAllBarberShops = async () => {
 
 export const login = async (login: Login) => {
     const response = await axios.post(URL_LOGIN + '/account', login);
+
+    return response;
+}
+
+export const createAccount = async (user: User) => {
+    const response = await axios.post(URL_LOGIN + '/account/createaccount', user);
 
     return response;
 }

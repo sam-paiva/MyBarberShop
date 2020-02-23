@@ -71,7 +71,7 @@ const BarberShopDetails: FC<Props> = (props) => {
     return (
 
         <View style={styles.containerBody}>
-            <Image style={styles.image} source={{ uri: 'data:image/jpg;base64,' + objectBarberShop.barberShop.imagePath }} />
+            <Image style={styles.image} source={{ uri: 'data:image/jpg;base64,' + objectBarberShop.barberShop.imageName }} />
             <View style={styles.bodyCard}>
                 <Carousel
                     layout={'default'}
